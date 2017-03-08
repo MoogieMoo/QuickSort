@@ -83,7 +83,16 @@ public class QuickSort
      *****************************************************/
     public static void qsort( int[] d ) 
     { 
+	int a = 0;
+	int b = arr.length - 1;
+	int c = arr.length / 1;
+	boolean sorted = false;
+	
+	if ( d.length == 1 ) {
+	    return;
+	}
 
+	partition( d, a, b, c )
     }
 
     // Thinkers are encouraged to roll their own subroutines.
