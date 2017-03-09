@@ -95,8 +95,11 @@ public class QuickSort
 	int bar = partition( a, left, right, a.length / 2 );
 	if ( bar > left ) {
 	    helper( a, left, bar - 1);
-	if( bar  < right )
+	}
+	if( bar  < right ) {
 	    helper( a, bar + 1, right );
+	}
+    }
 
 
     //main method for testing
