@@ -83,36 +83,32 @@ public class QuickSort
      *****************************************************/
     public static void qsort( int[] d ) 
     { 
-	int a = 0;
-	int b = arr.length - 1;
-	int c = arr.length / 1;
-	boolean sorted = false;
-	
-	if ( d.length == 1 ) {
-	    return;
-	}
-
-	partition( d, a, b, c )
+	helper( d, 0, d.length - 1 );
     }
 
     // Thinkers are encouraged to roll their own subroutines.
     // Insert your auxiliary helper methods here.
+    public static void helper( int[] a, int left, int right ) {
+	if ( a.length <= 1 ) {//base case
+	    return;
+	}
+	int bar = partition( a, left, right, a.length / 2 );
+	if ( bar > left ) {
+	    helper( a, left, bar - 1);
+	if( bar  < right )
+	    helper( a, bar + 1, right );
 
 
     //main method for testing
     public static void main( String[] args ) 
     {
-	/*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y) 
-
 	//get-it-up-and-running, static test case:
 	int [] arr1 = {7,1,5,12,3};
 	System.out.println("\narr1 init'd to: " );
 	printArr(arr1);
-
 	qsort( arr1 );	
        	System.out.println("arr1 after qsort: " );
 	printArr(arr1);
-
 	// randomly-generated arrays of n distinct vals
 	int[] arrN = new int[10];
 	for( int i = 0; i < arrN.length; i++ )
@@ -120,29 +116,22 @@ public class QuickSort
        
 	System.out.println("\narrN init'd to: " );
 	printArr(arrN);
-
        	shuffle(arrN);
        	System.out.println("arrN post-shuffle: " );
 	printArr(arrN);
-
 	qsort( arrN );
 	System.out.println("arrN after sort: " );
 	printArr(arrN);
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
 	/*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y) 
-
 	//get-it-up-and-running, static test case w/ dupes:
 	int [] arr2 = {7,1,5,12,3,7};
 	System.out.println("\narr2 init'd to: " );
 	printArr(arr2);
-
 	qsort( arr2 );	
        	System.out.println("arr2 after qsort: " );
 	printArr(arr2);
-
-
 	// arrays of randomly generated ints
 	int[] arrMatey = new int[20];
 	for( int i = 0; i < arrMatey.length; i++ )
@@ -150,11 +139,9 @@ public class QuickSort
        
 	System.out.println("\narrMatey init'd to: " );
 	printArr(arrMatey);
-
        	shuffle(arrMatey);
        	System.out.println("arrMatey post-shuffle: " );
 	printArr(arrMatey);
-
 	qsort( arrMatey );
 	System.out.println("arrMatey after sort: " );
 	printArr(arrMatey);
